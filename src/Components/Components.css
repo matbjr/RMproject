@@ -1,0 +1,29 @@
+.link-button {
+  background-color: transparent;
+  color: green;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+  display: inline;
+  margin: 0;
+  padding: 0;
+}
+
+.link-button:hover,
+.link-button:focus {
+  text-decoration: none;
+  outline: none !important;
+  box-shadow: none;
+}
+.btn:focus,
+.btn:active {
+  outline: none !important;
+  box-shadow: none;
+}
+.dropzone {
+  margin: auto;
+  width: 30%;
+  height: 40%;
+  background-color: white;
+  outline: 2px dashed black;
+}
