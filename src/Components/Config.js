@@ -8,6 +8,7 @@ let config = {
     'application_name': 'Reliability Measures microservices',
     'application_short_name': 'rm_microservices',
     'application_form': 'Calculate Exam Reliability',
+    'application_client_id': '807686504198-k9ob5s4g4kunufkrtb6mb9s6sr3dkatu.apps.googleusercontent.com',
     'service_url': 'http://api.reliabilitymeasures.com/',
     'test_url': 'http://localhost:5001/',
     'sample_method': 'sample/',

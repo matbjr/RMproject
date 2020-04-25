@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { loginSuccess, logOut } from '../Redux/Google_login/google_actions'
 import { Nav, Navbar, NavDropdown } from 'react-bootstrap'
 import { GoogleLogin, GoogleLogout } from 'react-google-login'
+import { get_config, get_service_config } from '../Components/Config'
 
 function Header() {
   const isLogin = useSelector((state) => state.google_json.isLogin)
@@ -63,16 +64,17 @@ function Header() {
         )}
         {!isLogin ? (
           <GoogleLogin
-            clientId='807686504198-k9ob5s4g4kunufkrtb6mb9s6sr3dkatu.apps.googleusercontent.com'
+            clientId={get_config('application_client_id')}
             buttonText='Sign in with Google'
             onSuccess={signIn}
             onFailure={error}
             isSignedIn={true}
+            scope='https://www.googleapis.com/auth/spreadsheets.readonly'
             cookiePolicy={'single_host_origin'}
           />
         ) : (
           <GoogleLogout
-            clientId='807686504198-k9ob5s4g4kunufkrtb6mb9s6sr3dkatu.apps.googleusercontent.com'
+            clientId={get_config('application_client_id')}
             buttonText='Logout'
             onLogoutSuccess={logout}
           />
