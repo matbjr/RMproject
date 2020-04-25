@@ -1,19 +1,25 @@
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { loginSuccess, logOut } from '../Redux/Google_login/google_actions'
 import { Nav, Navbar, NavDropdown } from 'react-bootstrap'
-import { GoogleLogin } from 'react-google-login'
+import { GoogleLogin, GoogleLogout } from 'react-google-login'
 
 function Header() {
+  const isLogin = useSelector((state) => state.google_json.isLogin)
+  const google_json = useSelector((state) => state.google_json.data)
+  const user_name = isLogin ? google_json.profileObj.name : ''
+  console.log(user_name)
+  const dispatch = useDispatch()
   const signIn = (response) => {
     console.log(response)
+    dispatch(loginSuccess(response))
   }
   const error = (response) => {
     console.log(response)
   }
-  // const logout = (response) => {
-  //   console.log(response)
-  // }
-  const loading = () => {
-    console.log('loading')
+  const logout = (response) => {
+    console.log(response)
+    dispatch(logOut())
   }
   return (
     <div>
@@ -50,15 +56,27 @@ function Header() {
           buttonText='Logout'
           onLogoutSuccess={logout}
         /> */}
-        <GoogleLogin
-          clientId='807686504198-k9ob5s4g4kunufkrtb6mb9s6sr3dkatu.apps.googleusercontent.com'
-          buttonText='Sign in with Google'
-          onRequest={loading}
-          onSuccess={signIn}
-          onFailure={error}
-          isSignedIn={true}
-          cookiePolicy={'single_host_origin'}
-        />
+        {isLogin ? (
+          <h4 className='google-user'>Welcome {user_name}</h4>
+        ) : (
+          <div></div>
+        )}
+        {!isLogin ? (
+          <GoogleLogin
+            clientId='807686504198-k9ob5s4g4kunufkrtb6mb9s6sr3dkatu.apps.googleusercontent.com'
+            buttonText='Sign in with Google'
+            onSuccess={signIn}
+            onFailure={error}
+            isSignedIn={true}
+            cookiePolicy={'single_host_origin'}
+          />
+        ) : (
+          <GoogleLogout
+            clientId='807686504198-k9ob5s4g4kunufkrtb6mb9s6sr3dkatu.apps.googleusercontent.com'
+            buttonText='Logout'
+            onLogoutSuccess={logout}
+          />
+        )}
       </Navbar>
     </div>
   )
