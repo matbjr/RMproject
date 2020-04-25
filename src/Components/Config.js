@@ -10,8 +10,9 @@ let config = {
     'application_form': 'Calculate Exam Reliability',
     'application_client_id': '807686504198-k9ob5s4g4kunufkrtb6mb9s6sr3dkatu.apps.googleusercontent.com',
     'service_url': 'http://api.reliabilitymeasures.com/',
-    'test_url': 'http://localhost:5001/',
+    'test_url': 'http://localhost:5000/',
     'sample_method': 'sample/',
+    'login_method':'login/',
     'keywords': {
             'item_responses': 'item_responses',
             'student_list': 'student_list',
@@ -125,7 +126,7 @@ let config = {
             'description': 'The assumption of the score 0 for items that the student does not have a response for',
             'type': 'dictionary of item ids'
         }
-    ] 
+    ]
 }
 
 

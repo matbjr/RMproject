@@ -1,5 +1,6 @@
 import axios from 'axios'
-import { send_input_request, send_input_success, send_input_failure, send_table_off, send_table_on } from "./send_input_types"
+import { send_input_request, send_input_success, send_input_failure,
+    send_table_off, send_table_on } from "./send_input_types"
 import { get_config, get_service_config } from '../../Components/Config'
 
 export const sendInputRequest = () => {
