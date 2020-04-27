@@ -22,7 +22,7 @@ function GetInputContainer() {
           try {
             jsonStr = JSON.parse(reader.result)
           } catch (err) {
-            alert('The file is not in a valid CSV or JSON format!')
+            alert('The file is not in a valid CSV or JSON format!') //FIXME
           }
         } else {
           let obj = convertToArrayOfObjects(data)

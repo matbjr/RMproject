@@ -1,5 +1,9 @@
-import { login_success, login_failure, logout,
-    send_login_request, send_login_success} from './google_types'
+import {
+  logout,
+  send_login_request,
+  send_login_success,
+  send_login_failure
+} from './google_types'
 
 const google_state = {
   data: [],
@@ -9,32 +13,28 @@ const google_state = {
 
 const google_reducer = (state = google_state, action) => {
   switch (action.type) {
-    case login_success:
-      return {
-        ...state,
-        data: action.payload,
-        isLogin: true
-      }
-    case login_failure:
-      return {
-        ...state,
-        error: action.payload
-      }
     case logout:
       return {
         ...state,
         isLogin: false
       }
     case send_login_request:
-        return{
-            ...state
-        }
+      return {
+        ...state
+      }
     case send_login_success:
-        return{
-            ...state,
-            data: action.payload,
-            error: ''
-        }
+      return {
+        ...state,
+        isLogin: true,
+        data: action.payload,
+        error: ''
+      }
+    case send_login_failure:
+      return {
+        ...state,
+        data: [],
+        error: action.payload
+      }
     default:
       return state
   }

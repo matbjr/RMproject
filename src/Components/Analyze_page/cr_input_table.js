@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import Loader from 'react-loader-spinner'
-import InputTable from '../Components/Input_table'
+import InputTable from './Input_table'
 
 function Crinputtable() {
   const showTableSam = useSelector((state) => state.sample_json.table)

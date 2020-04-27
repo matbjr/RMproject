@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import BootstrapTable from 'react-bootstrap-table-next'
 import ToolkitProvider, { CSVExport } from 'react-bootstrap-table2-toolkit'
-import { get_service_config } from './Config'
+import { get_service_config } from '../Config'
 
 function ResultsTable() {
   const jsonStrRes = useSelector((state) => state.results_json.data)
@@ -21,6 +21,7 @@ function ResultsTable() {
   ]
   let columns = rm_keys.map((val) => ({ dataField: val, text: val }))
   let results = showResTable ? jsonStrRes.analysis : jsonStrSam.analysis
+  console.log('ResultsTable -> results', results)
   let rm_results = [
     {
       [rm_keys[0]]: results[get_service_config(1, 'short_name')],

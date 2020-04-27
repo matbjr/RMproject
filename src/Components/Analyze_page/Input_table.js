@@ -4,7 +4,7 @@ import { Modal, Button } from 'react-bootstrap'
 import BootstrapTable from 'react-bootstrap-table-next'
 import ToolkitProvider, { CSVExport } from 'react-bootstrap-table2-toolkit'
 import cellEditFactory from 'react-bootstrap-table2-editor'
-import { fetchInput } from '../Redux/Send_input/send_input_actions'
+import { fetchInput } from '../../Redux/Send_input/send_input_actions'
 
 function InputTable() {
   const jsonStrSam = useSelector((state) => state.sample_json.data)

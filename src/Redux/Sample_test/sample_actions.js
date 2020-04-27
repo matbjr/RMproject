@@ -32,7 +32,7 @@ export const fetchSampleFailure = (error) => {
 }
 
 export const fetchSample = () => {
-  let url = get_config('service_url') + get_config('sample_method')
+  let url = get_config('test_url') + get_config('sample_method')
   return (dispatch) => {
     dispatch(fetchSampleRequest())
     dispatch(inputTableOff())
