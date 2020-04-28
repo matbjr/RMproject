@@ -37,11 +37,16 @@ function Googlelogin() {
           cookiePolicy={'none'}
         />
       ) : (
+        <div></div>
+      )}
+      {isLogin ? (
         <GoogleLogout
           clientId={get_config('application_client_id')}
           buttonText='Logout'
           onLogoutSuccess={logout}
         />
+      ) : (
+        <div></div>
       )}
     </React.Fragment>
   )

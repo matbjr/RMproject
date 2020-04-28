@@ -33,7 +33,6 @@ export const logOut = () => {
 
 export const fetchUser = (data) => {
   let url = get_config('test_url') + get_config('login_method')
-  console.log(data)
   const options = {
     method: 'POST',
     url: url,
@@ -45,13 +44,10 @@ export const fetchUser = (data) => {
     axios(options)
       .then((response) => {
         const data = response.data
-        console.log(data)
         dispatch(loginSuccess(data))
-        //dispatch(sendLoginSuccess(data))
       })
       .catch((error) => {
         dispatch(loginFailure(error.message))
-        //dispatch(sendInputFailure(error.message))
       })
   }
 }
