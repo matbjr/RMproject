@@ -1,6 +1,6 @@
 import React from 'react'
-import SampleContainer from '../Redux/Sample_test/sample_container'
-import InputContainer from '../Redux/Get_input/input_contianer'
+import SampleContainer from '../../Redux/Sample_test/sample_container'
+import InputContainer from '../../Redux/Get_input/input_contianer'
 import { Jumbotron } from 'react-bootstrap'
 
 function Inputjumbo() {

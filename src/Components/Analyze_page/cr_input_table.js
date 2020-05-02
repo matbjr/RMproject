@@ -1,12 +1,11 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import InputTable from './Input_table'
 import Loader from 'react-loader-spinner'
-import InputTable from '../Components/Input_table'
 
 function Crinputtable() {
   const showTableSam = useSelector((state) => state.sample_json.table)
   const showTableInput = useSelector((state) => state.input_json.table)
-  const isloadingRes = useSelector((state) => state.results_json.loading)
   const errorRes = useSelector((state) => state.results_json.error)
   const isloadingSam = useSelector((state) => state.sample_json.loading)
   const errorSam = useSelector((state) => state.sample_json.error)
@@ -26,13 +25,6 @@ function Crinputtable() {
       {showTableInput || showTableSam ? (
         <div>
           <InputTable />
-        </div>
-      ) : (
-        <div></div>
-      )}
-      {isloadingRes ? (
-        <div>
-          <Loader type='Puff' color='#00BFFF' height={100} width={100} />
         </div>
       ) : (
         <div></div>
