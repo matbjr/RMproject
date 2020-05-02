@@ -1,9 +1,4 @@
-import {
-  rm_courses_success,
-  rm_courses_failure,
-  rm_courses_show,
-  rm_courses_hide
-} from './rm_courses_init_types'
+import { rm_courses_success, rm_courses_failure, rm_courses_show, rm_courses_hide } from './rm_courses_init_types'
 import { get_config } from '../../Components/Config'
 import axios from 'axios'
 export const rmCoursesSuccess = (data) => {
@@ -29,7 +24,7 @@ export const rmCoursesHide = () => {
 }
 
 export const fetchCourses = () => {
-  let url = get_config('test_url') + get_config('classroom_method')
+  let url = get_config('service2_url') + get_config('classroom_method')
   const options = {
     method: 'POST',
     url: url,

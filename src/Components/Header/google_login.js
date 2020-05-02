@@ -34,7 +34,7 @@ function Googlelogin() {
           onFailure={error}
           isSignedIn={true}
           scope='https://www.googleapis.com/auth/spreadsheets.readonly https://www.googleapis.com/auth/classroom.courses'
-          cookiePolicy={'none'}
+          cookiePolicy={'single_host_origin'}
         />
       ) : (
         <div></div>

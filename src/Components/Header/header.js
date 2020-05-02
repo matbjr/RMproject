@@ -1,12 +1,10 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
-import GoogleLogin from './google_login'
-import {
-  rmCoursesShow,
-  rmCoursesHide
-} from '../../Redux/RM-courses_init/rm_courses_init_actions'
+//import GoogleLogin from './google_login'
+import { rmCoursesShow, rmCoursesHide } from '../../Redux/RM-courses_init/rm_courses_init_actions'
 import { Nav, Navbar, NavDropdown } from 'react-bootstrap'
+import { dataLoadedOff } from '../../Redux/Ramadan_quiz_results/indivisual_actions'
 
 function Header() {
   const dispatch = useDispatch()
@@ -25,13 +23,16 @@ function Header() {
             <Link className='text-light nav-link' to='/analyze'>
               Analyze Test
             </Link>
-            <Link className='text-light nav-link' to='/ramazan'>
+            <Link
+              className='text-light nav-link'
+              to='/ramazan'
+              onClick={() => {
+                dispatch(dataLoadedOff())
+              }}>
               Ramadan Quiz Results
             </Link>
 
-            <NavDropdown
-              title={<span className='text-light my-auto'>Courses</span>}
-              id='basic-nav-dropdown'>
+            <NavDropdown title={<span className='text-light my-auto'>Courses</span>} id='basic-nav-dropdown'>
               <NavDropdown.Item
                 as={Link}
                 to='/courses'
@@ -51,7 +52,7 @@ function Header() {
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
-        <GoogleLogin />
+        {/* <GoogleLogin /> */}
       </Navbar>
     </div>
   )

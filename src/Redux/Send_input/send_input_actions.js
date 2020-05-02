@@ -1,11 +1,5 @@
 import axios from 'axios'
-import {
-  send_input_request,
-  send_input_success,
-  send_input_failure,
-  send_table_off,
-  send_table_on
-} from './send_input_types'
+import { send_input_request, send_input_success, send_input_failure, send_table_off, send_table_on } from './send_input_types'
 import { get_config, get_service_config } from '../../Components/Config'
 
 export const sendInputRequest = () => {
@@ -37,7 +31,7 @@ export const sendInputFailure = (error) => {
 }
 
 export const fetchInput = (data) => {
-  let url = get_config('test_url') + get_service_config(6, 'api_method')
+  let url = get_config('service2_url') + get_service_config(6, 'api_method')
   console.log(data)
   const options = {
     method: 'POST',
