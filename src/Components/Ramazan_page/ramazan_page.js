@@ -22,8 +22,8 @@ function RamazanPage() {
       {data_loaded_4 && data_loaded_5 && data_loaded_6 ? (
         <Container fluid='md'>
           <Row
-            className='justify-content-center'
-            style={{ backgroundColor: 'lightgrey' }}>
+            className='justify-content-center text-white'
+            style={{ backgroundImage: "url(Ramadan-2020.jpg)", backgroundSize: 'stretch' }}>
             <h1>Ramadan Mubarak !</h1>
           </Row>
           <Row className='justify-content-center'>

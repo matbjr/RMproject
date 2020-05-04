@@ -18,9 +18,9 @@ function App() {
       <Initializer />
       {drop_init ? (
         <div className='App'>
-          <Header />
+          {/*<Header />*/}
           <Switch>
-            <Route path='/' component={Home} exact />
+            <Route path='/' component={RamazanPage} exact />
             <Route path='/analyze' component={Analyzepage} exact />
             <Route path='/courses' component={CoursesPage} exact />
             <Route path='/ramazan' component={RamazanPage} exact />

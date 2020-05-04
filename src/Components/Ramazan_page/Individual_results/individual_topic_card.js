@@ -7,13 +7,13 @@ function IndividualTopicCard() {
   const total_scores = useSelector(
     (state) => state.ramadan_ind_results.ind_quizzes.total_scores
   )
-  console.log(total_scores)
+  //console.log(total_scores)
   let topics = Object.keys(total_scores['Topic Max Scores'])
-  console.log('IndividualTopicCard -> topics', topics)
+  //console.log('IndividualTopicCard -> topics', topics)
   let topics_max = Object.values(total_scores['Topic Max Scores'])
-  console.log('IndividualTopicCard -> topics', topics_max)
+  //console.log('IndividualTopicCard -> topics', topics_max)
   let topics_score = Object.values(total_scores['Topic Scores'])
-  console.log('IndividualTopicCard -> topics', topics_score)
+  //console.log('IndividualTopicCard -> topics', topics_score)
   return (
     <div>
       <Accordion>

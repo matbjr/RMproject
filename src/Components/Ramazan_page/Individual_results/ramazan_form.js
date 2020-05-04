@@ -18,25 +18,30 @@ function RamazanForm() {
     age: ''
   }
   const onSubmit = (values) => {
-    console.log(values)
+    //console.log(values)
     dispatch(fetchRamadanResultsIndivisual(values))
     formik.handleReset()
   }
-  //console.log(redirect)
-  // const validate = (values) => {
-  //   let errors = {}
-
-  //   if (!values.name) {
-  //     errors.name = 'Required'
-  //   }
-  // }
+  const validate = (values) => {
+    let errors = {}
+    //console.log(values)
+    if (!values.name) {
+      errors.name = 'Required'
+    } else if (values.name.length < 2) {
+      errors.name = 'Atleast 2 letters required!'
+    }
+   if (values.age < 5 || values.age > 99) {
+      errors.age = 'between 5 and 99'
+    }
+    return errors
+  }
 
   const formik = useFormik({
     initialValues,
-    onSubmit
-    //validate
+    onSubmit,
+    validate
   })
-
+//console.log(formik.errors)
   return (
     <div>
       <Accordion>
@@ -80,6 +85,7 @@ function RamazanForm() {
                         onChange={formik.handleChange}
                         value={formik.values.name}
                       />
+                      {formik.errors.name ? <div className='small text-danger'>{formik.errors.name}</div>:null}
                     </Col>
                     <Col md='3'>
                       Age
@@ -91,6 +97,7 @@ function RamazanForm() {
                         onChange={formik.handleChange}
                         value={formik.values.age}
                       />
+                      {formik.errors.age ? <div className='small text-danger'>{formik.errors.age}</div>:null}
                     </Col>
                     <Col />
                   </Row>
