@@ -8,8 +8,8 @@ import Error from './Components/error_page'
 import Header from './Components/Header/header'
 import CoursesPage from './Components/Courses_page/courses_page'
 import RamazanPage from './Components/Ramazan_page/ramazan_page'
-import RamazanResultsPage from './Components/Ramadan_results_page/ramadan_results_page'
 import Initializer from './Components/initializer'
+import Test from './Components/test'
 
 function App() {
   const drop_init = useSelector((state) => state.dropbox.init)
@@ -24,7 +24,7 @@ function App() {
             <Route path='/analyze' component={Analyzepage} exact />
             <Route path='/courses' component={CoursesPage} exact />
             <Route path='/ramazan' component={RamazanPage} exact />
-            <Route path='/ramazanresults' component={RamazanResultsPage} exact />
+            <Route path='/test' component={Test} exact />
             <Route component={Error} />
           </Switch>
         </div>

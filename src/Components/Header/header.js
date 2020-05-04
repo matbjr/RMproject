@@ -1,22 +1,36 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 //import GoogleLogin from './google_login'
-import { rmCoursesShow, rmCoursesHide } from '../../Redux/RM-courses_init/rm_courses_init_actions'
-import { Nav, Navbar, NavDropdown } from 'react-bootstrap'
+import {
+  rmCoursesShow,
+  rmCoursesHide
+} from '../../Redux/RM-courses_init/rm_courses_init_actions'
+import { Nav, Navbar, NavDropdown, Col } from 'react-bootstrap'
 import { dataLoadedOff } from '../../Redux/Ramadan_quiz_results/indivisual_actions'
 
 function Header() {
+  const [expanded, setexpanded] = useState(false)
   const dispatch = useDispatch()
   return (
     <div>
-      <Navbar bg='success' expand='lg' variant='dark'>
+      <Navbar
+        expanded={expanded}
+        style={{ backgroundColor: 'green' }}
+        expand='lg'
+        variant='dark'>
+        <Col md='2' />
         <Navbar.Brand target='_blank' href='https://reliabilitymeasures.com/'>
           Reliability Measures
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls='basic-navbar-nav' />
+        <Navbar.Toggle
+          onClick={() =>
+            setexpanded((prevExpanded) => (prevExpanded = !prevExpanded))
+          }
+          aria-controls='basic-navbar-nav'
+        />
         <Navbar.Collapse id='basic-navbar-nav'>
-          <Nav className='mr-auto'>
+          <Nav className='mr-auto' onClick={() => setexpanded(false)}>
             <Link className='text-light nav-link' to='/'>
               Home
             </Link>
@@ -32,7 +46,9 @@ function Header() {
               Ramadan Quiz Results
             </Link>
 
-            <NavDropdown title={<span className='text-light my-auto'>Courses</span>} id='basic-nav-dropdown'>
+            <NavDropdown
+              title={<span className='text-light my-auto'>Courses</span>}
+              id='basic-nav-dropdown'>
               <NavDropdown.Item
                 as={Link}
                 to='/courses'
