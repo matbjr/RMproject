@@ -1,9 +1,4 @@
-import {
-  send_login_success,
-  send_login_failure,
-  logout,
-  send_login_request
-} from './google_types'
+import { send_login_success, send_login_failure, logout, send_login_request } from './google_types'
 import { get_config } from '../../Components/Config'
 import axios from 'axios'
 
@@ -32,7 +27,7 @@ export const logOut = () => {
 }
 
 export const fetchUser = (data) => {
-  let url = get_config('test_url') + get_config('login_method')
+  let url = get_config('service2_url') + get_config('login_method')
   const options = {
     method: 'POST',
     url: url,

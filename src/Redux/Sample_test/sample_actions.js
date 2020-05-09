@@ -1,10 +1,5 @@
 import axios from 'axios'
-import {
-  Fetch_sample_request,
-  Fetch_sample_success,
-  Fetch_sample_failure,
-  sample_table_off
-} from './sample_types'
+import { Fetch_sample_request, Fetch_sample_success, Fetch_sample_failure, sample_table_off } from './sample_types'
 import { get_config } from '../../Components/Config'
 import { inputTableOff } from '../Get_input/input_actions'
 
@@ -32,7 +27,7 @@ export const fetchSampleFailure = (error) => {
 }
 
 export const fetchSample = () => {
-  let url = get_config('test_url') + get_config('sample_method')
+  let url = get_config('service2_url') + get_config('sample_method')
   return (dispatch) => {
     dispatch(fetchSampleRequest())
     dispatch(inputTableOff())
