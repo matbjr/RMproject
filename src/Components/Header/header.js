@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
-//import GoogleLogin from './google_login'
+import GoogleLogin from './google_login'
 import {
   rmCoursesShow,
   rmCoursesHide
 } from '../../Redux/RM-courses_init/rm_courses_init_actions'
 import { Nav, Navbar, NavDropdown, Col } from 'react-bootstrap'
-import { dataLoadedOff } from '../../Redux/Ramadan_quiz_results/indivisual_actions'
+//import { dataLoadedOff } from '../../Redux/Ramadan_quiz_results/indivisual_actions'
 
 function Header() {
   const [expanded, setexpanded] = useState(false)
@@ -37,14 +37,17 @@ function Header() {
             <Link className='text-light nav-link' to='/analyze'>
               Analyze Test
             </Link>
-            <Link
+            <Link className='text-light nav-link' to='/dailyquiz'>
+              Daily Quizzes
+            </Link>
+            {/* <Link
               className='text-light nav-link'
               to='/ramazan'
               onClick={() => {
                 dispatch(dataLoadedOff())
               }}>
               Ramadan Quiz Results
-            </Link>
+            </Link> */}
 
             <NavDropdown
               title={<span className='text-light my-auto'>Courses</span>}
@@ -68,7 +71,7 @@ function Header() {
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
-        {/* <GoogleLogin /> */}
+        <GoogleLogin />
       </Navbar>
     </div>
   )

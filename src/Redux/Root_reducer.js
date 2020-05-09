@@ -7,6 +7,7 @@ import dropbox_reducer from './Dropbox_init/dropbox_reducer'
 import rm_course_reducer from './RM-courses_init/rm_courses_init_reducer'
 import ramadan_indivisual_results_reducer from './Ramadan_quiz_results/indivisual_reducer'
 import ramadan_aggregated_results_reducer from './Ramadan_quiz_results/aggregated_reducer'
+import quiz_question_reducer from './Quiz_question/quiz_question_reducer'
 
 const root_reducer = combineReducers({
   sample_json: sample_reducer,
@@ -16,7 +17,8 @@ const root_reducer = combineReducers({
   rm_courses_json: rm_course_reducer,
   dropbox: dropbox_reducer,
   ramadan_ind_results: ramadan_indivisual_results_reducer,
-  ramadan_agg_results: ramadan_aggregated_results_reducer
+  ramadan_agg_results: ramadan_aggregated_results_reducer,
+  quiz_question: quiz_question_reducer
 })
 
 export default root_reducer
