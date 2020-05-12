@@ -1,10 +1,12 @@
 import React from 'react'
-import { Form, Row, Col } from 'react-bootstrap'
+import { Row, Col } from 'react-bootstrap'
 import MyInput from './Reuse_components/my_input'
 import MultipleChoiceForm from './multiple_choice_form'
-import '../Components.css'
+import { question_details } from './question_details'
+import DropdownTree from './dropdown_tree'
 
 function HookForm() {
+  let subjects = question_details.subject_list.map((val) => val.label)
   let grades = []
   for (let i = 1; i <= 12; i++) {
     grades.push(String(i))
@@ -13,39 +15,39 @@ function HookForm() {
     <>
       <h2>Enter Item data</h2>
       <br></br>
-      <Form>
-        <Row>
-          <Col md='12'>
-            <MyInput label='Item Text' name='item_text' input_type='textarea' id='Item' />
-          </Col>
-          <Col md='6'>
-            <MyInput
-              label='Item Type'
-              name='item_type'
-              input_type='select'
-              options={['Multiple Choice']}
-              id='Item_type'
-            />
-          </Col>
-          <Col md='6'>
-            <Row>
-              <Col md='6'>
-                <MyInput label='Grade-Min' name='grade_min' input_type='select' options={grades} id='grade_min' />
-              </Col>
-              <Col md='6'>
-                <MyInput label='Grade-Max' name='grade_max' input_type='select' options={grades} id='grade_max' />
-              </Col>
-            </Row>
-          </Col>
-          <Col>
-            <MultipleChoiceForm />
-          </Col>
-        </Row>
-        {/* <MyInput label='Item Weight' name='item_weight' input_type='range' max_range={10} />
-        <p>{watch('item_weight')}</p> */}
-      </Form>
+      <Row>
+        <Col md='12'>
+          <MyInput label='Item Text' name='item_text' input_type='textarea' id='Item' />
+        </Col>
+        <Col md='3'>
+          <MyInput label='Subject' name='subject' input_type='select' options={subjects} id='subject' />
+        </Col>
+        <Col md='2'>
+          <h4 style={{ textAlign: 'initial' }}>Item Topics</h4>
+          <DropdownTree />
+        </Col>
+        <Col md='3'>
+          <MyInput
+            label='Item Type'
+            name='item_type'
+            input_type='select'
+            options={['Multiple Choice']}
+            id='Item_type'
+          />
+        </Col>
+        <Col md='2'>
+          <MyInput label='Grade-Min' name='grade_min' input_type='select' options={grades} id='grade_min' />
+        </Col>
+        <Col md='2'>
+          <MyInput label='Grade-Max' name='grade_max' input_type='select' options={grades} id='grade_max' />
+        </Col>
+        <Col>
+          <MultipleChoiceForm />
+        </Col>
+      </Row>
     </>
   )
 }
-
+// {/* <MyInput label='Item Weight' name='item_weight' input_type='range' max_range={10} />
+//         <p>{watch('item_weight')}</p> */}
 export default HookForm

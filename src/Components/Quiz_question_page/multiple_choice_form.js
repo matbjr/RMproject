@@ -1,10 +1,9 @@
 import React from 'react'
 import { useFormContext, useFieldArray, Controller } from 'react-hook-form'
 import { Button, ListGroup, Row, Col, Form } from 'react-bootstrap'
-import { Radio, FormControlLabel, RadioGroup } from '@material-ui/core'
 
 function MultipleChoiceForm() {
-  const { watch, control } = useFormContext()
+  const { watch, control, register } = useFormContext()
   const { fields, append, remove } = useFieldArray({ control, name: 'item_choices' })
   return (
     <>
@@ -41,15 +40,12 @@ function MultipleChoiceForm() {
                     />
                   </Col>
                   <Col md='2'>
-                    <Controller
-                      as={
-                        <RadioGroup>
-                          <FormControlLabel value='1' control={<Radio />} label='Correct' />
-                        </RadioGroup>
-                      }
+                    <input
+                      type='checkbox'
+                      value='1'
                       name={`item_choices[${index}].correct`}
-                      control={control}
-                      rules={{ required: true }}
+                      //defaultValue={item.correct}
+                      ref={register()}
                     />
                   </Col>
                   <Col md='2'>
