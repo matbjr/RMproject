@@ -40,13 +40,7 @@ function MultipleChoiceForm() {
                     />
                   </Col>
                   <Col md='2'>
-                    <input
-                      type='checkbox'
-                      value='1'
-                      name={`item_choices[${index}].correct`}
-                      //defaultValue={item.correct}
-                      ref={register()}
-                    />
+                    <input type='checkbox' value='1' name={`item_choices[${index}].correct`} ref={register()} />
                   </Col>
                   <Col md='2'>
                     <Button type='button' onClick={() => remove(index)}>

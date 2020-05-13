@@ -2,10 +2,7 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import GoogleLogin from './google_login'
-import {
-  rmCoursesShow,
-  rmCoursesHide
-} from '../../Redux/RM-courses_init/rm_courses_init_actions'
+import { rmCoursesShow, rmCoursesHide } from '../../Redux/RM-courses_init/rm_courses_init_actions'
 import { Nav, Navbar, NavDropdown, Col } from 'react-bootstrap'
 //import { dataLoadedOff } from '../../Redux/Ramadan_quiz_results/indivisual_actions'
 
@@ -14,19 +11,13 @@ function Header() {
   const dispatch = useDispatch()
   return (
     <div>
-      <Navbar
-        expanded={expanded}
-        style={{ backgroundColor: 'green' }}
-        expand='lg'
-        variant='dark'>
+      <Navbar expanded={expanded} style={{ backgroundColor: 'green' }} expand='lg' variant='dark'>
         <Col md='2' />
         <Navbar.Brand target='_blank' href='https://reliabilitymeasures.com/'>
           Reliability Measures
         </Navbar.Brand>
         <Navbar.Toggle
-          onClick={() =>
-            setexpanded((prevExpanded) => (prevExpanded = !prevExpanded))
-          }
+          onClick={() => setexpanded((prevExpanded) => (prevExpanded = !prevExpanded))}
           aria-controls='basic-navbar-nav'
         />
         <Navbar.Collapse id='basic-navbar-nav'>
@@ -38,7 +29,7 @@ function Header() {
               Analyze Test
             </Link>
             <Link className='text-light nav-link' to='/dailyquiz'>
-              Daily Quizzes
+              Create Questions
             </Link>
             {/* <Link
               className='text-light nav-link'
@@ -49,9 +40,7 @@ function Header() {
               Ramadan Quiz Results
             </Link> */}
 
-            <NavDropdown
-              title={<span className='text-light my-auto'>Courses</span>}
-              id='basic-nav-dropdown'>
+            <NavDropdown title={<span className='text-light my-auto'>Courses</span>} id='basic-nav-dropdown'>
               <NavDropdown.Item
                 as={Link}
                 to='/courses'

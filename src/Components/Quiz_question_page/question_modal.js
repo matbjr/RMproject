@@ -10,12 +10,13 @@ function QuestionModal(props) {
   const { getValues } = useFormContext()
   const topic_path = useSelector((state) => state.quiz_question.topic_path)
   const from_data = getValues({ nest: true })
-  let paths = topic_path.map((val) => val.path)
-  const fixChoices = () => {
-    return props.show ? from_data.item_choices.map((val) => (val.correct === false ? (val.correct = 0) : '1')) : null
+  let tags = topic_path.map((val) => val.path)
+  if (props.show === true) {
+    from_data.item_choices.map((val) => (val.correct === false ? (val.correct = 0) : (val.correct = 1)))
+    from_data.accessibility === false ? (from_data.accessibility = 0) : (from_data.accessibility = 1)
   }
-  fixChoices()
-  let item_json = Object.assign(from_data, { paths })
+  let item_json = Object.assign(from_data, { tags })
+  console.log('QuestionModal -> item_json', item_json)
   const handleSubmit = () => {
     props.onHide()
     dispatch(fetchItem(item_json))
@@ -38,7 +39,7 @@ function QuestionModal(props) {
                       <Row>
                         <Col sm>{`Choice ${index + 1} `}</Col>
                         <Col sm>{val.choice}</Col>
-                        <Col sm>{val.correct === '1' ? <i className='fas fa-check'></i> : null} </Col>
+                        <Col sm>{val.correct === 1 ? <i className='fas fa-check'></i> : null} </Col>
                       </Row>
                     </ListGroup.Item>
                   ))

@@ -31,6 +31,11 @@ function MyInput({ label, name, options, input_type, max_range, id }) {
             <Form.Control type={input_type} className='slider' min={1} max={max_range} name={name} ref={register} />
           </>
         ) : null}
+        {input_type === 'switch' ? (
+          <>
+            <input type='checkbox' value={1} name={name} ref={register} />
+          </>
+        ) : null}
       </Form.Group>
     </>
   )

@@ -14,6 +14,7 @@ function QuizQuestionPage() {
       grade_max: 12,
       item_text: '',
       subject: '',
+      accessibility: 1,
       item_choices: [
         { choice: '', correct: 0 },
         { choice: '', correct: 0 },
@@ -25,7 +26,6 @@ function QuizQuestionPage() {
   const { handleSubmit, watch } = methods
   const onSubmit = (data) => {
     setModalShow(true)
-    console.log(data)
   }
   return (
     <>
